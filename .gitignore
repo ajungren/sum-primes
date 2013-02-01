@@ -1,0 +1,7 @@
+# Program binary
+sum-primes
+
+# Editor cruft
+.*.swp
+*~
+
