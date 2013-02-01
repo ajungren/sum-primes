@@ -11,8 +11,8 @@ environment before running `make`. (Check your shell's manual for information.)
 ### Usage
 
 To use `sum-primes`, run `./sum-primes $MAX` replacing `$MAX` with the number
-you want `sum-primes` to stop at. `sum-primes` is **not** inclusive, so if you
-want the sum of all primes up to and including 923869, run `./sum-primes 923870`.
+you want `sum-primes` to stop at. `sum-primes` is inclusive, so if you
+want the sum of all primes up to and *excluding* 923869, run `./sum-primes 923868`.
 
 ### Speed
 
