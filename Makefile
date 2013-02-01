@@ -1,5 +1,5 @@
-CXX ?= c++
-CXXFLAGS ?= -O3 -std=c++0x -pipe
+CXX ?= g++
+CXXFLAGS ?= -march=native -O3 -pedantic -pipe -std=c++0x -Wall
 
 .PHONY: all clean
 all : sum-primes
