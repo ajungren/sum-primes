@@ -27,3 +27,28 @@ reducing memory usage (`std::vector<bool>` frequently, depending on
 implementation, packs multiple `bool`s together into one byte whereas C-style
 arrays of `bool`s do not).
 
+### Benchmarking
+
+A script to benchmark different `CXXFLAGS` is included. Run `./bench-cflags.sh CXXFLAGS`
+replacing `CXXFLAGS` with the `CXXFLAGS` you want to test. The script does
+require an implementation of the `time` command that is not built in to your
+shell, which may not be available by default. For example, on Gentoo you need
+to install the `sys-process/time` ebuild. If you see an error such as
+`which: no time`... you are missing the separate `time` program.
+
+After running the script, you should see five lines of `real` followed by a
+number. That number is the execution time of `sum-primes`. Note that the
+benchmarking script will invoke `sum-primes` with the argument `50000000`
+(fifty million) by default, though you can change that by setting the
+environment variable `PROG_ARGS`. This is an example session on the same Core 2
+Quad box with Gentoo that was mentioned in the Speed section:
+
+    wizard@galio ~/Projects/sum-primes $ ./bench-cflags.sh -march=native -O3 -std=c++0x
+    g++ -march=native -O3 -std=c++0x -o sum-primes sum-primes.cc
+    Running `./sum-primes 50000000' five times...
+    real 1.40
+    real 1.40
+    real 1.41
+    real 1.39
+    real 1.40
+
