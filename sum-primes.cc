@@ -29,6 +29,11 @@ typedef uint64_t uint64;
 typedef unsigned long long uint64;
 #endif
 
+/**
+ * @brief Find primes up to maximum_number with the sieve of Eratosthenes
+ * @param maximum_number The number to stop finding primes at
+ * @return An array where retval[i] is true iff i is prime (starts at 2)
+ */
 bool *sieve(uint64 maximum_number) {
     uint64 i, j;
     /* We pre-calculate the sqrt of maximum_number to prevent it from being
