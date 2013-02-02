@@ -48,11 +48,13 @@ bool *sieve(uint64 maximum_number) {
         return NULL;
     }
 
+    #pragma omp parallel for
     for(i = 0; i < maximum_number; i++)
         primes[i] = true;
 
     for(i = 2; i <= sqrt_of_max; i++) {
         if(primes[i]) {
+            #pragma omp parallel for
             for(j = i * i; j <= maximum_number; j += i)
                 primes[j] = false;
         }
